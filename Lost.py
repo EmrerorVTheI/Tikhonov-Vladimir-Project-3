@@ -75,8 +75,8 @@ for iy in range(len(add_string)):
         acq_string = acq_string + ',]'
     else:
         acq_string = acq_string + add_string[iy]
-print(acq_string)
 file_money.close()
 file_writer = open(current_directory+'/History.txt', 'w')
 file_writer.write(acq_string)
 file_writer.close()
+
