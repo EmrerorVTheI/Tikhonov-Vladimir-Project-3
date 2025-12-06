@@ -16,7 +16,7 @@ cn = (table_data_cn[2][2])[0] + (table_data_cn[2][2])[1] + '.' + (table_data_cn[
 current_file_path = os.path.abspath(__file__)
 current_directory = os.path.dirname(current_file_path)
 file_money = open(current_directory+'/History.txt', 'r')
-fole=str(*file_money)
+our_file=str(*file_money)
 list_day = []
 list_eu = []
 list_us = []
@@ -25,7 +25,7 @@ str_app = ''
 writer = False
 chosen = 1
 sw = 3
-for ix in range(len(fole)):
+for ix in range(len(our_file)):
     if sw == 0:
         writer = True
         sw = 3
@@ -33,12 +33,12 @@ for ix in range(len(fole)):
         sw = 0
     if sw == 2:
         sw = 1
-    if fole[ix] == ']':
+    if our_file[ix] == ']':
         writer = False
         chosen += 1
-    if fole[ix] == ',':
+    if our_file[ix] == ',':
         writer = False
-        if fole[ix + 1] == ']':
+        if our_file[ix + 1] == ']':
             sw = 2
         else:
             sw = 0
@@ -53,29 +53,30 @@ for ix in range(len(fole)):
                 list_cn.append(float(str_app))
             str_app=''
     if writer == True:
-        str_app = str_app + fole[ix]
-    if fole[ix] == '[':
+        str_app = str_app + our_file[ix]
+    if our_file[ix] == '[':
         writer = True
-if float(eu) == list_eu[len(list_eu) - 1]:
-    day = day
-else:
+'''
+Добавление курсов сегодняшнего дня
+if float(eu) != list_eu[len(list_eu) - 1]:
     list_day.append(day)
     list_eu.append(float(eu))
     list_us.append(float(us))
     list_cn.append(float(cn))
-stringg = str(list_day) + str(list_eu) + str(list_us) + str(list_cn)
-strang=''
-for iy in range(len(stringg)):
-    if stringg[iy] == ' ':
-        strang = strang
-    elif stringg[iy] == "'":
-        strang = strang
-    elif stringg[iy] == ']':
-        strang = strang + ',]'
+'''
+add_string = str(list_day) + str(list_eu) + str(list_us) + str(list_cn)
+acq_string=''
+for iy in range(len(add_string)):
+    if add_string[iy] == ' ':
+        acq_string = acq_string
+    elif add_string[iy] == "'":
+        acq_string = acq_string
+    elif add_string[iy] == ']':
+        acq_string = acq_string + ',]'
     else:
-        strang = strang + stringg[iy]
-print(strang)
+        acq_string = acq_string + add_string[iy]
+print(acq_string)
 file_money.close()
 file_writer = open(current_directory+'/History.txt', 'w')
-file_writer.write(strang)
+file_writer.write(acq_string)
 file_writer.close()
