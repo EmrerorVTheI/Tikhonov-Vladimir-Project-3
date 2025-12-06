@@ -1,7 +1,5 @@
 import requests
 from bs4 import BeautifulSoup
-import pandas as pd
-import csv
 
 def scrape_table_td(url, table_selector=None):
     try:
@@ -28,4 +26,5 @@ def scrape_table_td(url, table_selector=None):
         return data        
     except Exception as e:
         print(f"Ошибка: {e}")
+
         return []
