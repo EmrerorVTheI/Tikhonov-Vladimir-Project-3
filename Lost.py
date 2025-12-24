@@ -15,7 +15,7 @@ us = (table_data_us[2][2])[0] + (table_data_us[2][2])[1] + '.' + (table_data_us[
 cn = (table_data_cn[2][2])[0] + (table_data_cn[2][2])[1] + '.' + (table_data_cn[2][2])[3] + (table_data_cn[2][2])[4] + (table_data_cn[2][2])[5] + (table_data_cn[2][2])[6]
 current_file_path = os.path.abspath(__file__)
 current_directory = os.path.dirname(current_file_path)
-file_money = open(current_directory+'/History.txt', 'r')
+file_money = open(current_directory+'/History.py', 'r')
 our_file=str(*file_money)
 list_day = []
 list_eu = []
@@ -76,7 +76,8 @@ for iy in range(len(add_string)):
     else:
         acq_string = acq_string + add_string[iy]
 file_money.close()
-file_writer = open(current_directory+'/History.txt', 'w')
+file_writer = open(current_directory+'/History.py', 'w')
 file_writer.write(acq_string)
 file_writer.close()
+
 
